@@ -1,0 +1,8 @@
+{
+  "name": "Remix: SupplyGuard AI",
+  "description": "An agentic logistics system built with Gemini and LangGraph concepts, featuring RAG-grounded contract lookup, human-in-the-loop triggers, and detailed OpenTelemetry trace logging.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

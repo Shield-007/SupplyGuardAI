@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0A0A0B;
+  color: #E0E0E0;
+}
+
+/* Custom gorgeous scrollbar for dashboard logging consoles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0F0F12;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F46;
+}
+
+/* Pulsing routing lines for logistics flow movement */
+@keyframes routePulse {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(249, 115, 22, 0.45));
+    stroke-opacity: 0.8;
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(249, 115, 22, 1));
+    stroke-opacity: 1;
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(249, 115, 22, 0.45));
+    stroke-opacity: 0.8;
+  }
+}
+
+@keyframes routePulseEmerald {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.45));
+    stroke-opacity: 0.8;
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.95));
+    stroke-opacity: 1;
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.45));
+    stroke-opacity: 0.8;
+  }
+}
+
+@keyframes routePulseRed {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.35));
+    stroke-opacity: 0.6;
+  }
+  50% {
+    filter: drop-shadow(0 0 9px rgba(239, 68, 68, 0.85));
+    stroke-opacity: 0.8;
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.35));
+    stroke-opacity: 0.6;
+  }
+}
+
+#google-maps-parent svg path[stroke="#f97316"] {
+  animation: routePulse 2s infinite ease-in-out;
+}
+
+#google-maps-parent svg path[stroke="#10b981"] {
+  animation: routePulseEmerald 2s infinite ease-in-out;
+}
+
+#google-maps-parent svg path[stroke="#ef4444"] {
+  animation: routePulseRed 2.5s infinite ease-in-out;
+}
+
+/* Pulsing loader flow line for the fallback simulated map layout */
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.simulated-flow-line {
+  stroke-dasharray: 6 4;
+  animation: flowDash 1s infinite linear;
+}
+
+/* Style overrides for Google Maps InfoWindow to match our dark theme */
+.gm-style .gm-style-iw-c {
+  background-color: #0c0c0e !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 8px 10px -6px rgba(0, 0, 0, 0.8) !important;
+}
+
+.gm-style .gm-style-iw-d {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.gm-style .gm-style-iw-tc::after {
+  background-color: #0c0c0e !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.gm-style .gm-style-iw-ch {
+  display: none !important;
+}
+
+/* Hide default Google Maps InfoWindow close button */
+.gm-style-iw button.gm-ui-hover-effect {
+  display: none !important;
+}
+
